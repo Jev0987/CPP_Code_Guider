@@ -44,6 +44,8 @@ void user_function() {
         product *= i;
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }
+
+    // 函数退出后，程序运行标志为置为false
 }
 
 int main() {
