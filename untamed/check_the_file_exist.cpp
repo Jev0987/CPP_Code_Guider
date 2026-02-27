@@ -3,13 +3,10 @@
  * @Author: jev
  * @Date: 2026-02-25
  */
-#include <cstdio>
 #include <filesystem>  // c++17
 #include <fstream>
-#include <sys/stat.h>
-
 #include <iostream>
-
+#include <sys/stat.h>
 // 性能最差
 void using_fstream_to_check(const std::string& path) {
     std::ifstream file{path};
@@ -22,7 +19,8 @@ void using_fstream_to_check(const std::string& path) {
 void using_filesystem_to_check(const std::string& path) {
     std::filesystem::path p{path};
     if (std::filesystem::exists(p)) {
-        std::printf("using filesystem to check file exist, file path: %s exist", path.c_str());
+        std::cout << "using filesystem to check file exist, file path: " << path << " exist"
+                  << std::endl;
 
         if (std::filesystem::is_regular_file(p)) {
             std::printf("它是一个普通的文件");
